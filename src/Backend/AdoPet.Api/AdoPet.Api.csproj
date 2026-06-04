@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\AdoPet.Communication\AdoPet.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\AdoPet.Exception\AdoPet.Exception.csproj" />
+    <ProjectReference Include="..\AdoPet.Application\AdoPet.Application.csproj" />
+    <ProjectReference Include="..\AdoPet.Infrastructure\AdoPet.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

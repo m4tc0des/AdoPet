@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Backend/">
+    <Project Path="src/Backend/AdoPet.Api/AdoPet.Api.csproj" />
+    <Project Path="src/Backend/AdoPet.Application/AdoPet.Application.csproj" />
+    <Project Path="src/Backend/AdoPet.Domain/AdoPet.Domain.csproj" />
+    <Project Path="src/Backend/AdoPet.Infrastructure/AdoPet.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/AdoPet.Communication/AdoPet.Communication.csproj" />
+    <Project Path="src/Shared/AdoPet.Exception/AdoPet.Exception.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
