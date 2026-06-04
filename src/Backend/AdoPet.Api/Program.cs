@@ -1,3 +1,5 @@
+using AdoPet.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +9,11 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddConfigurationLocalization();
+
 var app = builder.Build();
+
+app.UseConfiguredLocalization();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
