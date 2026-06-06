@@ -1,4 +1,5 @@
 using AdoPet.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddConfigurationLocalization();
+
+builder.Services.AddMvc(options => options.Filters.Add<IExceptionFilter>());
 
 var app = builder.Build();
 

@@ -7,4 +7,9 @@ public class ErrorOnValidationException : AdoPetException
     {
         _errors = errorMessages;
     }
+
+    public List<string> GetErrorsMessages()
+    {
+        return _errors;
+    }
 }
