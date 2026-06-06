@@ -13,12 +13,14 @@ public class ExceptionFilter : IExceptionFilter
         if (context.Exception is ErrorOnValidationException errorOnValidationException)
         {
             context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+
             context.Result = new BadRequestObjectResult(new ResponseErrorJson(errorOnValidationException.GetErrorsMessages()));
         }
 
         else
         {
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
+
             context.Result = new ObjectResult(new ResponseErrorJson(ResourceMessagesException.UNKNOWN_ERROR));
         }
     }

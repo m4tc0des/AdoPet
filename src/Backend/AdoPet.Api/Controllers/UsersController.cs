@@ -12,7 +12,9 @@ public class UsersController : ControllerBase
     public IActionResult Register([FromBody] RequestsRegisterUserJson request)
     {
         var useCase = new RegisterUserAccountJseCase();
+
         useCase.Excute(request);
+
         return Created();
     }
 }
