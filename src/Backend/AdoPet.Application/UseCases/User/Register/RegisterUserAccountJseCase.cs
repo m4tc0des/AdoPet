@@ -19,6 +19,8 @@ public class RegisterUserAccountJseCase : IRegisterUserUseCase
         ValidateAndThrowOnValidation(request);
 
         var user = request.Adapt<Domain.Entities.User>();
+
+        var hashedPassword = _passwordHasher.HashPassword(request.Password);
     }
 
     public void ValidateAndThrowOnValidation(RequestsRegisterUserJson request)
