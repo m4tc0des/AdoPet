@@ -1,12 +1,20 @@
 ﻿using AdoPet.Communication.Requests;
+using AdoPet.Domain.Security.PasswordHashing;
 using AdoPet.Exception.ExceptionsBase;
 using Mapster;
 
 namespace AdoPet.Application.UseCases.User.Register;
 
-public class RegisterUserAccountJseCase
+public class RegisterUserAccountJseCase : IRegisterUserUseCase
 {
-    public void Excute(RequestsRegisterUserJson request)
+    private readonly IPasswordHasher _passwordHasher;
+
+    public RegisterUserAccountJseCase(IPasswordHasher passwordHasher)
+    {
+        _passwordHasher = passwordHasher;
+    }
+
+    public void Execute(RequestsRegisterUserJson request)
     {
         ValidateAndThrowOnValidation(request);
 
