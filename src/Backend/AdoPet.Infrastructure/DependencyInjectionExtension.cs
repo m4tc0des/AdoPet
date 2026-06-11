@@ -4,10 +4,13 @@ using MyRecipeBook.Infrastructure.Security.PasswordHashing;
 
 namespace AdoPet.Infrastructure;
 
-public class DependencyInjectionExtension
+public static class DependencyInjectionExtension
 {
-    public void AddInfrastructure(IServiceCollection services)
+    extension(IServiceCollection services)
     {
-        services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
+        public void AddInfrastructure()
+        {
+            services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
+        }
     }
 }

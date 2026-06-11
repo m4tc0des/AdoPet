@@ -1,5 +1,6 @@
 using AdoPet.Infrastructure;
 using AdoPet.Api.Filters;
+using AdoPet.Application;
 
 
 
@@ -15,6 +16,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddConfigurationLocalization();
 
 builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
+
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 

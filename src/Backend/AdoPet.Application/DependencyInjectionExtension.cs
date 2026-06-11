@@ -1,11 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AdoPet.Application.UseCases.User.Register;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AdoPet.Application;
 
-public class DependencyInjectionExtension
+public static class DependencyInjectionExtension
 {
-    public void AddApplication(IServiceCollection services)
+    extension(IServiceCollection services)
     {
-        services.AddScoped<>();
+        public void AddApplication()
+        {
+            services.AddScoped<IRegisterUserUseCase, IRegisterUserUseCase>();
+        }
     }
 }
