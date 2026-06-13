@@ -9,11 +9,9 @@ namespace AdoPet.Api.Controllers;
 public class UsersController : ControllerBase
 {
     [HttpPost]
-    public IActionResult Register([FromBody] RequestsRegisterUserJson request)
+    public IActionResult Register([FromBody] RequestsRegisterUserJson request, [FromServices] IRegisterUserUseCase useCase)
     {
-        var useCase = new RegisterUserAccountJseCase();
-
-        useCase.Excute(request);
+        useCase.Execute(request);
 
         return Created();
     }
