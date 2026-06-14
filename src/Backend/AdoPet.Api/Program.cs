@@ -2,15 +2,12 @@ using AdoPet.Infrastructure;
 using AdoPet.Api.Filters;
 using AdoPet.Application;
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
 builder.Services.AddOpenApi();
+
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddConfigurationLocalization();
@@ -18,13 +15,13 @@ builder.Services.AddConfigurationLocalization();
 builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
 
 builder.Services.AddApplication();
+
 builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 
 app.UseConfiguredLocalization();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
