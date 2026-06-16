@@ -23,7 +23,7 @@ public class RegisterUserAccountJseCase : IRegisterUserUseCase
         var hashedPassword = _passwordHasher.HashPassword(request.Password);
     }
 
-    public void ValidateAndThrowOnValidation(RequestsRegisterUserJson request)
+    private void ValidateAndThrowOnValidation(RequestsRegisterUserJson request)
     {
         var validator = new RegisterUserAccountValidator();
 
