@@ -12,6 +12,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddConfigurationLocalization();
 
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
 builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
 
 builder.Services.AddApplication();
