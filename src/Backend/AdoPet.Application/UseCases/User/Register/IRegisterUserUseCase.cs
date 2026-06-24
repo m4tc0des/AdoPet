@@ -4,5 +4,5 @@ namespace AdoPet.Application.UseCases.User.Register;
 
 public interface IRegisterUserUseCase
 {
-    void Execute(RequestsRegisterUserJson request);
+    Task Execute(RequestsRegisterUserJson request);
 }
