@@ -1,4 +1,5 @@
-﻿using AdoPet.Application.UseCases.User.Register;
+﻿using AdoPet.Application.UseCases.Login.LoginWithEmailAndPassword;
+using AdoPet.Application.UseCases.User.Register;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AdoPet.Application;
@@ -9,7 +10,8 @@ public static class DependencyInjectionExtension
     {
         public void AddApplication()
         {
-            services.AddScoped<IRegisterUserUseCase, IRegisterUserUseCase>();
+            services.AddScoped<IRegisterUserUseCase, RegisterUserAccountUseCase>();
+            services.AddScoped<ILoginWithEmailAndPasswordUseCase, LoginWithEmailAndPasswordUseCase>();
         }
     }
 }
