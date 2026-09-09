@@ -1,6 +1,6 @@
 ﻿using AdoPet.Application.UseCases.User.Register;
 using AdoPet.Communication.Requests;
-    using AdoPet.Communication.Responses;
+using AdoPet.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdoPet.Api.Controllers;
