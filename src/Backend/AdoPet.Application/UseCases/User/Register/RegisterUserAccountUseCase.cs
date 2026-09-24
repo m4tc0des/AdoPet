@@ -3,6 +3,7 @@ using AdoPet.Communication.Responses;
 using AdoPet.Domain.Repositories;
 using AdoPet.Domain.Repositories.User;
 using AdoPet.Domain.Security.PasswordHashing;
+using AdoPet.Domain.Security.Tokens;
 using AdoPet.Exception;
 using AdoPet.Exception.ExceptionsBase;
 using Mapster;
@@ -15,13 +16,19 @@ public class RegisterUserAccountUseCase : IRegisterUserUseCase
     private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IUserReadOnlyRepository _userReadOnlyRepository;
+    private readonly IAccessTokenGenerator _accessTokenGenerator;
 
-    public RegisterUserAccountUseCase(IPasswordHasher passwordHasher, IUserWriteOnlyRepository userWriteOnlyRepository, IUnitOfWork unitOfWork, IUserReadOnlyRepository userReadOnlyRepository)
+    public RegisterUserAccountUseCase(IPasswordHasher passwordHasher,
+        IUserWriteOnlyRepository userWriteOnlyRepository,
+        IUnitOfWork unitOfWork,
+        IUserReadOnlyRepository userReadOnlyRepository,
+        IAccessTokenGenerator accessTokenGenerator)
     {
         _passwordHasher = passwordHasher;
         _userWriteOnlyRepository = userWriteOnlyRepository;
         _unitOfWork = unitOfWork;
         _userReadOnlyRepository = userReadOnlyRepository;
+        _accessTokenGenerator = accessTokenGenerator;
     }
 
     public async Task<ResponseRegisterUserJson> Execute(RequestsRegisterUserJson request)
@@ -38,7 +45,11 @@ public class RegisterUserAccountUseCase : IRegisterUserUseCase
 
         return new ResponseRegisterUserJson
         {
-            UserName = user.UserName
+            UserName = user.UserName,
+            Tokens = new ResponseTokensJson()
+            {
+                AccessToken = _accessTokenGenerator.Generate(user)
+            }
         };
     }
 
