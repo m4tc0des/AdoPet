@@ -2,6 +2,7 @@
 using AdoPet.Communication.Responses;
 using AdoPet.Domain.Repositories.User;
 using AdoPet.Domain.Security.PasswordHashing;
+using AdoPet.Domain.Security.Tokens;
 using AdoPet.Exception.ExceptionsBase;
 
 namespace AdoPet.Application.UseCases.Login.LoginWithEmailAndPassword;
@@ -10,11 +11,13 @@ public class LoginWithEmailAndPasswordUseCase : ILoginWithEmailAndPasswordUseCas
 {
     private readonly IUserReadOnlyRepository _userReadRepository;
     private readonly IPasswordHasher _passwordHasher;
+    private readonly IAccessTokenGenerator _accessTokenGenerator;
 
-    public LoginWithEmailAndPasswordUseCase(IUserReadOnlyRepository userReadRepository, IPasswordHasher passwordHasher)
+    public LoginWithEmailAndPasswordUseCase(IUserReadOnlyRepository userReadRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator)
     {
         _userReadRepository = userReadRepository;
         _passwordHasher = passwordHasher;
+        _accessTokenGenerator = accessTokenGenerator;
     }
 
     public async Task<ResponseRegisterUserJson> Execute(RequestLoginJson request)
@@ -29,7 +32,11 @@ public class LoginWithEmailAndPasswordUseCase : ILoginWithEmailAndPasswordUseCas
 
         return new ResponseRegisterUserJson
         {
-            UserName = user.UserName
+            UserName = user.UserName,
+            Tokens = new ResponseTokensJson()
+            {
+                AccessToken = _accessTokenGenerator.Generate(user)
+            }
         };
     }
 }
