@@ -70,6 +70,15 @@ namespace AdoPet.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O email já esta em uso..
+        /// </summary>
+        public static string VALIDATION_EMAIL_ALREADY_EXISTS {
+            get {
+                return ResourceManager.GetString("VALIDATION_EMAIL_ALREADY_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O email é inválido..
         /// </summary>
         public static string VALIDATION_EMAIL_INVALID {
@@ -84,6 +93,15 @@ namespace AdoPet.Exception {
         public static string VALIDATION_EMAIL_REQUIRED {
             get {
                 return ResourceManager.GetString("VALIDATION_EMAIL_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário ou senha inválidos..
+        /// </summary>
+        public static string VALIDATION_LOGIN_INVALID {
+            get {
+                return ResourceManager.GetString("VALIDATION_LOGIN_INVALID", resourceCulture);
             }
         }
         

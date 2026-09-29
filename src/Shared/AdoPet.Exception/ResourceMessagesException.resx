@@ -120,11 +120,17 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
   </data>
+  <data name="VALIDATION_EMAIL_ALREADY_EXISTS" xml:space="preserve">
+    <value>O email já esta em uso.</value>
+  </data>
   <data name="VALIDATION_EMAIL_INVALID" xml:space="preserve">
     <value>O email é inválido.</value>
   </data>
   <data name="VALIDATION_EMAIL_REQUIRED" xml:space="preserve">
     <value>O email é obrigatório.</value>
+  </data>
+  <data name="VALIDATION_LOGIN_INVALID" xml:space="preserve">
+    <value>Usuário ou senha inválidos.</value>
   </data>
   <data name="VALIDATION_PASSWORD_REQUIRED" xml:space="preserve">
     <value>A senha é obrigatória.</value>
