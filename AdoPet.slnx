@@ -10,5 +10,10 @@
     <Project Path="src/Shared/AdoPet.Communication/AdoPet.Communication.csproj" />
     <Project Path="src/Shared/AdoPet.Exception/AdoPet.Exception.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="tests/CommonTestUtilities/CommonTestUtilities.csproj" Id="7f785f0c-7bc0-46bf-8269-6fdc272914e8" />
+    <Project Path="tests/UseCases.Tests/UseCases.Tests.csproj" Id="e441ef8d-ccfb-4abe-b48e-83cf7471728a" />
+    <Project Path="tests/Validators.Tests/Validators.Tests.csproj" Id="a9b3b60b-70ae-4472-b042-4558a00f2f1b" />
+    <Project Path="tests/WebApi.Tests/WebApi.Tests.csproj" Id="d0107787-cc30-4213-a1b4-eace39341674" />
+  </Folder>
 </Solution>
